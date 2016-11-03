@@ -1,0 +1,32 @@
+# resources:
+#   http://genbattle.bitbucket.org/blog/2016/01/17/c++-travis-ci/
+#   https://github.com/genbattle/dkm/blob/master/.travis.yml
+#   https://jonasw.de/blog/2015/07/22/develop/cplusplus14-on-travis-with-cmake/
+
+# install C++11/C++14 compilers
+addons:
+    apt:
+        # add PPAs with more up-to-date toolchains
+        sources:
+            - llvm-toolchain-precise-3.8
+            - ubuntu-toolchain-r-test
+        # install toolchains
+        packages:
+            - gcc-5
+            - g++-5
+            - clang-3.8
+install:
+    - if [ "$CXX" = "g++" ]; then export CXX="g++-5" CC="gcc-5"; fi
+    - if [ "$CXX" = "clang++" ]; then export CXX="clang++-3.8" CC="clang-3.8"; fi
+# enable C++ support
+language: cpp
+# compiler selection
+compiler:
+    - gcc
+    - clang
+# build steps
+script:
+    - make distclean
+    - make debug=1
+    - make test
+
