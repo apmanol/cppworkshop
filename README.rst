@@ -19,13 +19,13 @@ Exercise 1: memerr.cpp (memory errors)
 
 2. In src/memerr.cpp uncomment DO_ERROR_ADDRESS_SANITIZER, and repeat step 1.
    Explain the result.
-   2.1 Comment out the buffer overflow case, build, run and explain
+   1) Comment out the buffer overflow case, build, run and explain
    the result.
 
-   2.2 Comment out the use after free case, build, run and explain the
+   2) Comment out the use after free case, build, run and explain the
    result.
 
-   2.3 Comment out the double free case, build, run and explain the
+   3) Comment out the double free case, build, run and explain the
    result.
 
 3. In src/memerr.cpp uncomment DO_ERROR_STACK_PROTECTOR, and repeat step 1.
