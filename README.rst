@@ -19,6 +19,7 @@ Exercise 1: memerr.cpp (memory errors)
 
 2. In src/memerr.cpp uncomment DO_ERROR_ADDRESS_SANITIZER, and repeat step 1.
    Explain the result.
+
    2.1 Comment out the buffer overflow case, build, run and explain
    the result.
 
