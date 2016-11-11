@@ -17,7 +17,7 @@
 ///
 /// @tparam T type of the samples
 /// @param[in] sample_number number of the samples
-/// @param[in] common_ratio geometric common ratio
+/// @param[in] common_ratio geometric common ratio & first sequence value
 ///
 /// @return vector with the values
 template <typename T>
@@ -28,10 +28,10 @@ std::vector<T> generate_geometric_samples(std::size_t sample_number,
   return v;
 }
 
-/// Checks if all the elements of a vector area divisible by a number
+/// Checks if all the elements of a vector are divisible by a number
 ///
 /// @param[in] v the vector with the elements
-/// @param[in] d the test factor
+/// @param[in] d the test divisor
 ///
 /// @return true if all elements are divisible.
 ///
@@ -44,7 +44,7 @@ TEST_CASE("Geometric samples are computed", "[geometric]") {
   std::vector<unsigned long> expected{3, 9, 27, 81, 243};
   REQUIRE(generate_geometric_samples<unsigned long>(5, 3) == expected);
   auto test_vector = generate_geometric_samples<unsigned long>(20, 3);
-  REQUIRE(is_divisible_by(test_vector, 7) == true);
+  REQUIRE(is_divisible_by(test_vector, 3) == true);
 }
 
 
