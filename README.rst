@@ -19,6 +19,7 @@ Exercise 1: memerr.cpp (memory errors)
 
 2. In src/memerr.cpp uncomment DO_ERROR_ADDRESS_SANITIZER, and repeat step 1.
    Explain the result.
+
    1) Comment out the buffer overflow case, build, run and explain
    the result.
 
@@ -93,7 +94,7 @@ Exercise 3: stl.cpp (STL & algorithms)
    Then fill the function ``is_divisible_by`` in order to check if all
    elements of a ``vector`` are divisible by some number.
 
-   Tip: use std::any_of
+   Tip: use std::all_of
 
 3. Fix unit test ``remove``
 
