@@ -1,5 +1,6 @@
 file (GLOB_RECURSE PROJECT_SOURCES *.cpp)
 
+#add_definitions(-DSOLUTIONS)
 foreach (SOURCE ${PROJECT_SOURCES})
   get_filename_component (TARGET ${SOURCE} NAME_WE)
   # add executable

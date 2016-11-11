@@ -8,11 +8,7 @@ INSTALLDIR = .
 INSTALLDIR_BIN = ./bin
 INSTALLDIR_LIB = ./lib
 
-CMAKEOPTS =
-ifeq ($(arch), gcc5)
-	CMAKEOPTS += -DCMAKE_TOOLCHAIN_FILE=../tools/share/cmake/Toolchain-gcc5.cmake
-endif
-
+CMAKEOPTS = -DCMAKE_TOOLCHAIN_FILE=../tools/share/cmake/Toolchain.cmake
 ifeq ($(debug), 1)
 	CMAKEOPTS += -DCMAKE_BUILD_TYPE=Debug
 endif
