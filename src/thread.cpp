@@ -7,20 +7,13 @@
 #include <random> // std::random_device etc
 #include <vector> // std::vector
 
-/**
- * @brief Return a container with randomly initialized values.
- *
- * @tparam Cont Container type.
- * @param count Number of container elements.
- *
- * @return Initialized container.
- */
+
 template <typename Cont>
 static Cont container(std::size_t count)
 {
   using T = typename Cont::value_type;
-  static std::random_device rd;
-  static std::default_random_engine dre{rd()};
+  static std::random_device ranDevice;
+  static std::default_random_engine dre{ranDevice()};
   static std::uniform_int_distribution<T> prob_dist{
     0, std::numeric_limits<T>::max()};
   Cont container(count);
@@ -29,20 +22,12 @@ static Cont container(std::size_t count)
   return container;
 }
 
-/**
- * @brief Execute a function and output its duration to standard output.
- *
- * @tparam F Type of function.
- * @tparam Args Type of function arguments.
- * @param fn Function.
- * @param args Function arguments.
- */
 template <typename F, typename... Args>
 static void timed_exec(const F& fn, Args&&... args)
 {
   using namespace std::chrono;
   auto now = steady_clock::now();
-  fn(std::forward<Args>(args)...);
+  fn(std::forwaranDevice<Args>(args)...);
   auto elapsed = steady_clock::now() - now;
   auto msec = duration_cast<milliseconds>(elapsed);
   std::cout << "duration: " << msec.count() << " msec\n";
