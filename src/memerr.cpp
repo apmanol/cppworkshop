@@ -27,7 +27,7 @@ void err_asan()
   int *k = fetch_mem();
   k[5] = 10;
 
-  // // double free
+  // double free
   int *l = new int[3];
   l[2] = 2;
   delete[] l;
